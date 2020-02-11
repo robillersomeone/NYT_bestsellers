@@ -2,7 +2,7 @@ import re
 import numpy as np
 import pandas as pd
 from sklearn import model_selection
-from sklearn.feature_extraction import text
+from sklearn.feature_extraction import text as txt
 from sklearn.feature_extraction.text import CountVectorizer
 import nltk
 from nltk.corpus import wordnet as wn
@@ -12,7 +12,7 @@ from nltk.stem.wordnet import WordNetLemmatizer
 def no_html(text):
     '''remove html tags
     -------
-    text: a string of the description
+    text: a string of the description for one book
     '''
     return re.sub('<.{1,9}>',' ', text)
 
@@ -99,7 +99,17 @@ def lemmtize_it(sentences):
 nyt_stop_words = ['new', 'york', 'bestseller', 'besteller', 'bestselling']
 
 # add custom stop words to list of stop words, which is a frozen set
-stop_words = text.ENGLISH_STOP_WORDS.union(nyt_stop_words)
+stop_words = txt.ENGLISH_STOP_WORDS.union(nyt_stop_words)
+
+'''
+Parameters
+-------
+no_function: earlier text processing functions
+
+Returns
+-------
+no_function_v: vectorized verison of the function
+'''
 
 
 # vectorize text processing functions
@@ -117,6 +127,11 @@ v_lemmtize_it =  np.vectorize(lemmtize_it)
 
 # fit the CountVectorizer?
 # probs in a different notebook
+
+# this notebook will just be to clean the text
+# make another file for  fiting a count vectorizer
+
+
 
 # X_test = no_html_v(X_test)
 # X_test = no_nums_v(X_test)
