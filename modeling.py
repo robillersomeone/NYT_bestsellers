@@ -10,11 +10,10 @@ import numpy as np
 
 # target names for all the models
 class_names = ['Not Bestseller', 'Bestseller']
-
 #
-# clf =
 
-def baseline_modeling(clf, X_data, y_data):
+
+def baseline_modeling(self, clf, X_data, y_data):
 
     # fit classifier
     clf.fit(X_data, y_data)
@@ -31,7 +30,12 @@ def baseline_modeling(clf, X_data, y_data):
 
     clf_report = classification_report(y_data, clf_predictions, target_names=class_names)
 
-    return clf_score #, clf_report
+    return {'clf score' :clf_score,
+            'clf confusion': clf_confusion}
+
+            # {'clf score' :clf_score,
+            # 'clf confusion': clf_confusion,
+            # 'clf report': clf_report}
 
 
 # TODO
