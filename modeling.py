@@ -13,7 +13,7 @@ class_names = ['Not Bestseller', 'Bestseller']
 #
 
 
-def baseline_modeling(self, clf, X_data, y_data):
+def baseline_modeling(clf, X_data, y_data):
 
     # fit classifier
     clf.fit(X_data, y_data)
