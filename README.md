@@ -70,7 +70,7 @@ Two initial models are implemented
 
 ### Baseline Modeling 
 
-The Numerial baseline model solved with `strategy= 'stratified’` highlights the class balance in the dataset. 
+The numerial baseline model the scikit-learn implementation a Dummy Classifier solved with `strategy= 'stratified’` highlighting the class balance in the dataset. 
 
 with a `mean training accuracy of 0.66`
 
