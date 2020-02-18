@@ -30,12 +30,32 @@ def baseline_modeling(clf, X_data, y_data):
 
     clf_report = classification_report(y_data, clf_predictions, target_names=class_names)
 
-    return {'clf score' :clf_score,
+    return {f'{clf} score' :clf_score,
             'clf confusion': clf_confusion}
 
             # {'clf score' :clf_score,
             # 'clf confusion': clf_confusion,
             # 'clf report': clf_report}
+
+def modeling(clf, X_data, y_data):
+
+    # fit classifier
+    clf.fit(X_data, y_data)
+
+    # this is predcting on the training set
+    clf_predictions = clf.predict(X_data)
+
+    # takes y_train, model_predictions
+    clf_confusion = confusion_matrix(y_data, clf_predictions)
+
+    # clf_plot_confusion = plot_confusion_matrix(clf, X_data, y_data, cmap='ocean', display_labels=class_names)
+
+    clf_score = clf.score(X_data, y_data)
+
+    clf_report = classification_report(y_data, clf_predictions, target_names=class_names)
+
+    return {f'{clf} score' :clf_score,
+            'clf confusion': clf_confusion}
 
 
 # TODO
