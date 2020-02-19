@@ -30,7 +30,7 @@ def baseline_modeling(clf, X_data, y_data):
 
     clf_report = classification_report(y_data, clf_predictions, target_names=class_names)
 
-    return {f'{clf} score' :clf_score,
+    return {'clf score' :clf_score,
             'clf confusion': clf_confusion}
 
             # {'clf score' :clf_score,
@@ -54,7 +54,7 @@ def modeling(clf, X_data, y_data):
 
     clf_report = classification_report(y_data, clf_predictions, target_names=class_names)
 
-    return {f'{clf} score' :clf_score,
+    return {'clf score' :clf_score,
             'clf confusion': clf_confusion}
 
 
