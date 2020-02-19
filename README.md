@@ -77,4 +77,12 @@ with a `mean training accuracy of 0.66`
 
 <img width="350" alt="Screen Shot 2020-02-17 at 5 20 11 PM" src="https://user-images.githubusercontent.com/39356742/74690173-f92db080-51ab-11ea-985c-5428a7099103.png">
 
+### Random Forest 
 
+Numerical Model performance on the test set
+
+<img width="350" alt="Screen Shot 2020-02-19 at 4 30 59 PM" src="https://user-images.githubusercontent.com/39356742/74878514-7cc6d900-5335-11ea-85d3-8d9e7a57395a.png">
+
+Text Modeling performance on the test set
+
+<img width="350" alt="Screen Shot 2020-02-19 at 4 31 15 PM" src="https://user-images.githubusercontent.com/39356742/74878488-70428080-5335-11ea-89d4-41b93804a108.png">
