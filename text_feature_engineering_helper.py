@@ -51,18 +51,18 @@ lemmatizer = WordNetLemmatizer()
 # a = adjective
 # r = adverb
 
+
 def mapping_pos(word):
-        '''helper function to map part of speech to use in WordNetLemmatizer
+    '''helper function to map part of speech to use in WordNetLemmatizer
 
-        Parameters
-        -------
-        word: one word string
+    Parameters
+    -------
+    word: one word string
 
-        Returns
-        -------
-        Part of Speech for the WordNetLemmatizer as a string
-        '''
-    # account for numbers as strings
+    Returns
+    -------
+    Part of Speech for the WordNetLemmatizer as a string
+    '''
     if word.isdigit():
         return ' '
     # naive mapping of the nltk word pos to the WordNetLemmatizer pos
@@ -77,18 +77,19 @@ def mapping_pos(word):
         else:
             return 'n'
 
+
 def lemmtize_it(sentences):
-        '''map part of speech to use in WordNetLemmatizer
+    '''map part of speech to use in WordNetLemmatizer
 
-        Parameters
-        -------
-        sentences: a string of the description,
-            with no html, intergers, or punctuation
+    Parameters
+    -------
+    sentences: a string of the description,
+        with no html, intergers, or punctuation
 
-        Returns
-        -------
-        sentence as lemmas
-        '''
+    Returns
+    -------
+    sentence as lemmas
+    '''
     # split the string of sentences
     sentence = sentences.split(' ')
     cleaned = [lemmatizer.lemmatize(i, mapping_pos(i)) for i in sentence if i is not '']
@@ -123,6 +124,13 @@ no_upper_v = np.vectorize(no_upper)
 
 v_lemmtize_it =  np.vectorize(lemmtize_it)
 
+def nlp_processing(text):
+    h_text = no_html_v(text)
+    n_text = no_nums_v(h_text)
+    p_text = no_punc_v(n_text)
+    u_text = no_upper_v(p_text)
+    l_text = v_lemmtize_it(u_text)
+    return l_text
 # TODO
 
 # fit the CountVectorizer?
