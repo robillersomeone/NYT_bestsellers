@@ -65,7 +65,7 @@ The scikit learn `CountVectorizer` produced the sparse text matrix for modeling.
 
 Two initial models are implemented 
 
-- A Numerical model with the number of pages and rating or each book
+- A Numerical model with the number of pages and Goodeads rating of each book
 - A text model with the vectorized book descriptions
 
 ### Baseline Modeling 
@@ -77,12 +77,20 @@ with a `mean training accuracy of 0.66`
 
 <img width="350" alt="Screen Shot 2020-02-17 at 5 20 11 PM" src="https://user-images.githubusercontent.com/39356742/74690173-f92db080-51ab-11ea-985c-5428a7099103.png">
 
+The confusion matrix for the test set is
+
+<img width="350" alt="Screen Shot 2020-02-21 at 10 52 39 AM" src="https://user-images.githubusercontent.com/39356742/75049587-7dc44b80-5498-11ea-949b-31c333316e10.png">
+
+Due to the class balance of the data set only 17 samples are correctly classified as Best Sellers, the `mean training accuracy is 0.66` as well.
+
 ### Random Forest 
 
-Numerical Model performance on the test set
+Numerical Model performance on the test set with the defualt parameters of the scikit-learn random forest.
+with `mean testing accuracy of 0.77`
 
 <img width="350" alt="Screen Shot 2020-02-19 at 4 30 59 PM" src="https://user-images.githubusercontent.com/39356742/74878514-7cc6d900-5335-11ea-85d3-8d9e7a57395a.png">
 
-Text Modeling performance on the test set
+Text Modeling performance on the test set with the defualt parameters of the scikit-learn random forest.
+with `mean testing accuracy of 0.81`
 
 <img width="350" alt="Screen Shot 2020-02-19 at 4 31 15 PM" src="https://user-images.githubusercontent.com/39356742/74878488-70428080-5335-11ea-89d4-41b93804a108.png">
