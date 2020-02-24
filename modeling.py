@@ -65,27 +65,32 @@ def modeling(clf, X_data, y_data):
             'clf confusion': clf_confusion}
 
 
+# load in count vectorizer and model
 cv_pickle = open("csv_files/countvectorizer.pk","rb")
 cv = pickle.load(cv_pickle)
 
+rf_text_model = pickle.load(open('models/rf_text_model.sav', 'rb'))
+
+
 def new_book_prediction(text):
     # process text
-    clean_text = reh.nlp_processing(np.array([text]))
-
+    clean_text = teh.nlp_processing(np.array([text]))
+    print(clean_text)
     # transform with count vectorizer (from a pickle)
     cv_transformed = cv.transform(clean_text)
 
     new_book_df = pd.DataFrame(cv_transformed.toarray(),columns=cv.get_feature_names())
     # predict with rf model (from a pickle)
-
+    pred = rf_text_model.predict(new_book_df)
     # pred = model.predict(new_book_df)
 
+    # return prediction
     if pred == 0:
         return class_names[0]
     else:
         return class_names[1]
 
-    pass # return prediction
+    pass
 
 
 # TODO
