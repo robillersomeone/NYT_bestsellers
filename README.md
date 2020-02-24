@@ -2,7 +2,7 @@
 
 ## Goal
 
-To predict a New York Times Best Sellers using natural language processing and publishing features.
+To predict a New York Times Best Seller using natural language processing and publishing features.
 
 ## Structure
 - [Data](#Data)
@@ -85,12 +85,41 @@ Due to the class balance of the data set only 17 samples are correctly classifie
 
 ### Random Forest 
 
-Numerical Model performance on the test set with the defualt parameters of the scikit-learn random forest.
-with `mean testing accuracy of 0.77`
+Numerical Model performance on the test set with the default parameters of the scikit-learn random forest.
+
+`crterion='gini'`
+
+`max_leaf_nodes` , `max_samples` , and `min_impurity_split` are all set to `None`
+
+With a  `mean testing accuracy of 0.77`
 
 <img width="350" alt="Screen Shot 2020-02-19 at 4 30 59 PM" src="https://user-images.githubusercontent.com/39356742/74878514-7cc6d900-5335-11ea-85d3-8d9e7a57395a.png">
 
-Text Modeling performance on the test set with the defualt parameters of the scikit-learn random forest.
-with `mean testing accuracy of 0.81`
+Text Modeling performance on the test set with the default parameters of the scikit-learn random forest.
+
+`crterion='gini'`
+
+`max_leaf_nodes` , `max_samples` , and `min_impurity_split` are all set to `None`
+
+With a `mean testing accuracy of 0.81`
 
 <img width="350" alt="Screen Shot 2020-02-19 at 4 31 15 PM" src="https://user-images.githubusercontent.com/39356742/74878488-70428080-5335-11ea-89d4-41b93804a108.png">
+
+#### random search
+
+Using random search the mean testing accuracy performs the same as the initial text random forest model with a different distribution of misclassified instances.
+
+The hyperparameters found using random search are 
+
+`'criterion': 'entropy'`
+
+`'n_estimators': 240`
+
+`'max_features': 'log2'`
+
+`'criterion': 'entropy'`
+
+With a `mean testing accuracy of 0.81`
+
+<img width="350" alt="Screen Shot 2020-02-24 at 4 16 30 PM" src="https://user-images.githubusercontent.com/39356742/75192792-f8080080-5722-11ea-9220-ce2d8ded745d.png">
+
