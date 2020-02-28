@@ -116,15 +116,18 @@ Using random search the mean testing accuracy performs the same as the initial t
 
 The hyperparameters found using random search are 
 
-`'criterion'='entropy'`
+`criterion='entropy'`
 
-`'n_estimators'=240`
+`n_estimators=240`
 
-`'max_features'='log2'`
+`max_features='log2'`
 
-`'criterion'='entropy'`
+`criterion='entropy'`
 
 With a `mean testing accuracy of 0.81`
 
 <img width="350" alt="Screen Shot 2020-02-24 at 4 16 30 PM" src="https://user-images.githubusercontent.com/39356742/75192792-f8080080-5722-11ea-9220-ce2d8ded745d.png">
 
+## Next Steps
+
+Compare the feature weights in logistic and tree based models.
