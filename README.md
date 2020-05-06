@@ -144,10 +144,10 @@ With a `mean testing accuracy of 0.81`
 
 ### Predictions
 
-To classify a book call the `modeling.py` script from the command line with a description of a book in string format.
+To classify a book call the `prediction.py` script from the command line with a description of a book in string format.
 
 ```shell
-$ python modeling.py 'The full inside story of the breathtaking rise and shocking collapse of Theranos, \
+$ python prediction.py 'The full inside story of the breathtaking rise and shocking collapse of Theranos, \
  the multibillion-dollar biotech startup, by the prize-winning journalist who first broke the story and pursued it to the end, \
   despite pressure from its charismatic CEO and threats by her lawyers. '
 
