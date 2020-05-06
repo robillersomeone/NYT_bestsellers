@@ -13,9 +13,9 @@ To predict a New York Times Best Seller using natural language processing and pu
 
 ## <a name="Data"></a>Data
 
-The initial dataset is from Goodreads list of Goodreads choice awards of best fiction books in 2016, 2017, 2018 and list of NYT notable books from 2016, 2017, and 2018. 
+The initial dataset is from Goodreads list of Goodreads choice awards of best fiction books in 2016, 2017, 2018 and list of NYT notable books from 2016, 2017, and 2018.
 
-Publishing features include 
+Publishing features include
 - author
 - number of pages
 - genre
@@ -27,8 +27,8 @@ Other data collected
 
 ## <a name="EDA"></a>EDA
 
-The books were categorized as a binary on the New York Times Best Seller list or not. 
-Goodreads is user driven, with metadata about the books, a short description, and ratings and comments from users. 
+The books were categorized as a binary on the New York Times Best Seller list or not.
+Goodreads is user driven, with metadata about the books, a short description, and ratings and comments from users.
 
 The mean rating for books on the Best Seller list is slightly lower than those not on the list.
 
@@ -48,9 +48,9 @@ Non-Best Selling Books mean rating **4.09 out of 5**.
 
 
 Genres that don't appear on the NYT Best Seller list include
-  
+
  >'New Adult', 'Contemporary', 'Science Fiction', 'Childrens', 'Food and Drink', 'Humor', 'Thriller', 'Polyamorous', 'Media Tie In', 'Paranormal', 'Dark', 'Business', 'Religion', 'Christian', 'Sports and Games'
- 
+
  There are 955 unique authors of 1098 books, with most authors (844) having one book. Sarah j. Maas and Stephen King are the most prolific, both with 6 books.
 
 ## <a name="Text-Feature-Engineering"></a> Text Feature Engineering
@@ -59,6 +59,18 @@ Using Natural Language Toolkit the book descriptions were pre-processed then lem
 
 Custom stop words are included to prevent data leakage in the description. Specifically words relating to NYT Best Seller list.
 
+```shell
+text_feature_engineering_helper.py
+```
+
+Does preprocessing, taking out HTML tags, numbers, punctuation, and uppercase.
+
+```shell
+text_feature_engineering.py
+```
+implementing the lemmatizer and removes stop words, for modeling.
+
+
 The scikit learn `CountVectorizer` produced the sparse text matrix for modeling.
 
 After cleaning the text the most common words in the description are
@@ -66,16 +78,16 @@ After cleaning the text the most common words in the description are
 <img width="550" alt="Screen Shot 2020-02-26 at 2 59 01 PM" src="https://user-images.githubusercontent.com/39356742/75382611-ccaf1e00-58a8-11ea-9e7d-c9ca92980bcd.png">
 
 
-## <a name="Modeling"></a> Modeling 
+## <a name="Modeling"></a> Modeling
 
-Two initial models are implemented 
+Two initial models are implemented
 
 - A Numerical model with the number of pages and Goodeads rating of each book
 - A text model with the vectorized book descriptions
 
-### Baseline Modeling 
+### Baseline Modeling
 
-The numerial baseline model the scikit-learn implementation a Dummy Classifier solved with `strategy= 'stratified’` highlighting the class balance in the dataset. 
+The numerial baseline model the scikit-learn implementation a Dummy Classifier solved with `strategy= 'stratified’` highlighting the class balance in the dataset.
 
 with a `mean training accuracy of 0.66`
 
@@ -88,7 +100,7 @@ The confusion matrix for the test set is
 
 Due to the class balance of the data set only 17 samples are correctly classified as Best Sellers, the `mean training accuracy is 0.66` as well.
 
-### Random Forest 
+### Random Forest
 
 Numerical Model performance on the test set with the default parameters of the scikit-learn random forest.
 
@@ -114,7 +126,7 @@ With a `mean testing accuracy of 0.81`
 
 Using random search the mean testing accuracy performs the same as the initial text random forest model with a different distribution of misclassified instances.
 
-The hyperparameters found using random search are 
+The hyperparameters found using random search are
 
 `criterion='entropy'`
 
