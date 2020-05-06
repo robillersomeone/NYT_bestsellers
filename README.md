@@ -32,7 +32,7 @@ Goodreads is user driven, with metadata about the books, a short description, an
 
 The mean rating for books on the Best Seller list is slightly lower than those not on the list.
 
-<img width="350" alt="Screen Shot 2019-03-18 at 4 22 52 PM" src="https://user-images.githubusercontent.com/39356742/54561159-5ddbfc00-499a-11e9-9180-9ca78da33443.png">
+<img width="600" height="450" alt="Screen Shot 2019-03-18 at 4 22 52 PM" src="https://user-images.githubusercontent.com/39356742/54561159-5ddbfc00-499a-11e9-9180-9ca78da33443.png">
 
 
 Best Sellering Books mean rating **3.92 out of 5**.
@@ -41,10 +41,10 @@ Non-Best Selling Books mean rating **4.09 out of 5**.
 
 **Nonfiction** and **Fiction** are most prevalent genres, with only 21 of the 33 total genres appear in the Best Seller list.
 
-<img width="450" alt="Screen Shot 2020-02-17 at 4 37 55 PM" src="https://user-images.githubusercontent.com/39356742/74688056-49087980-51a4-11ea-9a59-a022a76557fe.png">
+<img width="675" height="450" alt="Screen Shot 2020-02-17 at 4 37 55 PM" src="https://user-images.githubusercontent.com/39356742/74688056-49087980-51a4-11ea-9a59-a022a76557fe.png">
 
 
-<img width="450" alt="Screen Shot 2020-02-17 at 4 38 05 PM" src="https://user-images.githubusercontent.com/39356742/74688198-c8964880-51a4-11ea-90f8-40011d9f77a3.png">
+<img width="675" height="450" alt="Screen Shot 2020-02-17 at 4 38 05 PM" src="https://user-images.githubusercontent.com/39356742/74688198-c8964880-51a4-11ea-90f8-40011d9f77a3.png">
 
 
 Genres that don't appear on the NYT Best Seller list include
@@ -59,6 +59,8 @@ Using Natural Language Toolkit the book descriptions were pre-processed then lem
 
 Custom stop words are included to prevent data leakage in the description. Specifically words relating to NYT Best Seller list.
 
+There are two scripts to process the text data.
+
 ```shell
 text_feature_engineering_helper.py
 ```
@@ -68,14 +70,14 @@ Does preprocessing, taking out HTML tags, numbers, punctuation, and uppercase.
 ```shell
 text_feature_engineering.py
 ```
-implementing the lemmatizer and removes stop words, for modeling.
+Implements the lemmatizer and removes stop words.
 
 
 The scikit learn `CountVectorizer` produced the sparse text matrix for modeling.
 
 After cleaning the text the most common words in the description are
 
-<img width="550" alt="Screen Shot 2020-02-26 at 2 59 01 PM" src="https://user-images.githubusercontent.com/39356742/75382611-ccaf1e00-58a8-11ea-9e7d-c9ca92980bcd.png">
+<img width="675" height="450" alt="Screen Shot 2020-02-26 at 2 59 01 PM" src="https://user-images.githubusercontent.com/39356742/75382611-ccaf1e00-58a8-11ea-9e7d-c9ca92980bcd.png">
 
 
 ## <a name="Modeling"></a> Modeling

@@ -74,13 +74,20 @@ nyt_stop_words = ['new', 'york', 'bestseller', 'besteller', 'bestselling']
 stop_words = txt.ENGLISH_STOP_WORDS.union(nyt_stop_words)
 
 def nlp_processing(text):
-    """
-    """
+    '''processes text for modeling
+
+    Parameters
+    -------
+    text: a string of the description,
+        with lemmas, no html, intergers, or punctuation
+
+    Returns
+    -------
+    string of cleaned text
+    '''
     preprocessed_text = text_helper.nlp_preprocessing(text)
     l_text = v_lemmtize_it(preprocessed_text)
     return l_text
-
-print(nlp_processing('Very cool! 1 is a number...'))
 
 
 # TODO
@@ -92,13 +99,7 @@ print(nlp_processing('Very cool! 1 is a number...'))
 # this notebook will just be to clean the text
 # make another file for  fiting a count vectorizer
 
-
-
-# X_test = no_html_v(X_test)
-# X_test = no_nums_v(X_test)
-# X_test = no_punc_v(X_test)
-# X_test = no_upper_v(X_test)
-# X_test = v_lemmtize_it(X_test)
+# X_test = nlp_processing(X_test)
 #
 # cv = CountVectorizer(stop_words=stop_words)
 # v_X_train = cv.fit_transform(X_train)

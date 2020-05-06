@@ -2,7 +2,7 @@ from sklearn.metrics import confusion_matrix, classification_report, plot_confus
 from sklearn.dummy import DummyClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-import text_feature_engineering_helper as teh
+import text_feature_engineering_ as te
 import pandas as pd
 import numpy as np
 import pickle
@@ -16,7 +16,23 @@ class_names = ['Not Bestseller', 'Bestseller']
 
 # X_data is the cleaned dataframe
 def baseline_modeling(clf, X_data, y_data, confusion_title=None):
+    '''map part of speech to use in WordNetLemmatizer
 
+    Parameters
+    -------
+    clf: sklearn classifier, ie RandomForestClassifier, LogisticRegression, or DummyClassifier
+
+    X_data: cleaned training data features
+
+    y_data: classification of example (besteller or not)
+
+    confusion_title: optional title for classifer in confusion matrix
+
+    Returns
+    -------
+    score for model
+    confusion matrix
+    '''
     # fit classifier
     clf.fit(X_data, y_data)
 
@@ -66,7 +82,7 @@ def modeling(clf, X_data, y_data):
 
 
 # load in count vectorizer and model
-cv_pickle = open("csv_files/countvectorizer.pk","rb")
+cv_pickle = open("data/countvectorizer.pk","rb")
 cv = pickle.load(cv_pickle)
 
 rf_text_model = pickle.load(open('models/rf_text_model.sav', 'rb'))
@@ -74,7 +90,7 @@ rf_text_model = pickle.load(open('models/rf_text_model.sav', 'rb'))
 
 def new_book_prediction(text):
     # process text
-    clean_text = teh.nlp_processing(np.array([text]))
+    clean_text = te.nlp_processing(np.array([text]))
     print(clean_text)
     # transform with count vectorizer (from a pickle)
     cv_transformed = cv.transform(clean_text)
