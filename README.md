@@ -142,6 +142,21 @@ With a `mean testing accuracy of 0.81`
 
 <img width="350" alt="Screen Shot 2020-02-24 at 4 16 30 PM" src="https://user-images.githubusercontent.com/39356742/75192792-f8080080-5722-11ea-9220-ce2d8ded745d.png">
 
+### Predictions
+
+To classy a book call the `modeling.py` from the command line with a description of a book in string format.
+
+```shell
+$ python modeling.py 'The full inside story of the breathtaking rise and shocking collapse of Theranos, \
+ the multibillion-dollar biotech startup, by the prize-winning journalist who first broke the story and pursued it to the end, \
+  despite pressure from its charismatic CEO and threats by her lawyers. '
+
+> Bestseller
+```
+The model classifies the first paragraph of Bad Blood: Secrets and Lies in a Silicon Valley Startup by John Carreyrou as a NYT bestseller.
+
+An important note is that most descriptions will be classified and not bestsellers (even when they are on the besteller list), this is due to the training data and current model used in classification, a RandomForestClassifier trained only on book descriptions.
+
 ## Next Steps
 
 Compare the feature weights in logistic and tree based models.

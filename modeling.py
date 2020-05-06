@@ -1,18 +1,22 @@
+import sys
+import pickle
+import numpy as np
+import pandas as pd
+import text_feature_engineering as te
 from sklearn.metrics import confusion_matrix, classification_report, plot_confusion_matrix
 from sklearn.dummy import DummyClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-import text_feature_engineering_ as te
-import pandas as pd
-import numpy as np
-import pickle
+
+# description to clasify
+new_description = ' '.join(sys.argv[1:])
 
 # dataframes
 
 
 # target names for all the models
 class_names = ['Not Bestseller', 'Bestseller']
-#
+
 
 # X_data is the cleaned dataframe
 def baseline_modeling(clf, X_data, y_data, confusion_title=None):
@@ -89,6 +93,16 @@ rf_text_model = pickle.load(open('models/rf_text_model.sav', 'rb'))
 
 
 def new_book_prediction(text):
+    '''predict of bestseller or not based on text data
+
+    Parameters
+    -------
+    text: description of book as a string
+
+    Returns
+    -------
+    predict from RandomForestClassifier text based model
+    '''
     # process text
     clean_text = te.nlp_processing(np.array([text]))
     print(clean_text)
@@ -107,6 +121,9 @@ def new_book_prediction(text):
         return class_names[1]
 
     pass
+
+# print(new_description)
+print(new_book_prediction(new_description))
 
 
 # TODO
