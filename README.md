@@ -61,6 +61,11 @@ Custom stop words are included to prevent data leakage in the description. Speci
 
 The scikit learn `CountVectorizer` produced the sparse text matrix for modeling.
 
+After cleaning the text the most common words in the description are
+
+<img width="550" alt="Screen Shot 2020-02-26 at 2 59 01 PM" src="https://user-images.githubusercontent.com/39356742/75382611-ccaf1e00-58a8-11ea-9e7d-c9ca92980bcd.png">
+
+
 ## <a name="Modeling"></a> Modeling 
 
 Two initial models are implemented 
@@ -105,21 +110,24 @@ With a `mean testing accuracy of 0.81`
 
 <img width="350" alt="Screen Shot 2020-02-19 at 4 31 15 PM" src="https://user-images.githubusercontent.com/39356742/74878488-70428080-5335-11ea-89d4-41b93804a108.png">
 
-#### random search
+#### Random search
 
 Using random search the mean testing accuracy performs the same as the initial text random forest model with a different distribution of misclassified instances.
 
 The hyperparameters found using random search are 
 
-`'criterion': 'entropy'`
+`criterion='entropy'`
 
-`'n_estimators': 240`
+`n_estimators=240`
 
-`'max_features': 'log2'`
+`max_features='log2'`
 
-`'criterion': 'entropy'`
+`criterion='entropy'`
 
 With a `mean testing accuracy of 0.81`
 
 <img width="350" alt="Screen Shot 2020-02-24 at 4 16 30 PM" src="https://user-images.githubusercontent.com/39356742/75192792-f8080080-5722-11ea-9220-ce2d8ded745d.png">
 
+## Next Steps
+
+Compare the feature weights in logistic and tree based models.
