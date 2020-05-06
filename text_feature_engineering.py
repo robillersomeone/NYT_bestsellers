@@ -1,0 +1,48 @@
+import re
+import numpy as np
+import pandas as pd
+from sklearn import model_selection
+from sklearn.feature_extraction import text
+from sklearn.feature_extraction.text import CountVectorizer
+import nltk
+from nltk.corpus import wordnet as wn
+from nltk.stem.wordnet import WordNetLemmatizer
+
+
+def no_html(text):
+    '''remove html tags
+    -------
+    text: a string of the description
+    '''
+    return re.sub('<.{1,9}>',' ', text)
+
+def no_nums(text):
+    '''remove years and numbers
+    -------
+    text: a string of the description
+    '''
+    return re.sub('\d+', ' ', text)
+
+def no_punc(text):
+    '''remove punctuation
+    -------
+    text: a string of the description
+    '''
+    return re.sub('\.|-|\(|\)|\"|,|\?', ' ', text)
+
+def no_upper(text):
+    '''remove uppercase
+    -------
+    text: a string of the description
+    '''
+    return text.lower()
+
+
+# vectorize text processing functions
+no_html_v = np.vectorize(no_html)
+
+no_nums_v = np.vectorize(no_nums)
+
+no_punc_v = np.vectorize(no_punc)
+
+no_upper_v = np.vectorize(no_upper)
