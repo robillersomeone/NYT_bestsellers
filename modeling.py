@@ -105,7 +105,7 @@ def new_book_prediction(text):
     '''
     # process text
     clean_text = te.nlp_processing(np.array([text]))
-    print(clean_text)
+    # print(clean_text)
     # transform with count vectorizer (from a pickle)
     cv_transformed = cv.transform(clean_text)
 
@@ -116,14 +116,19 @@ def new_book_prediction(text):
 
     # return prediction
     if pred == 0:
-        return class_names[0]
+        print('\n', class_names[0])
     else:
-        return class_names[1]
+        print('\n', class_names[1])
 
     pass
 
+def main():
+    new_book_prediction(new_description)
+
+if __name__ == '__main__':
+    main()
 # print(new_description)
-print(new_book_prediction(new_description))
+# print(new_book_prediction(new_description))
 
 
 # TODO
