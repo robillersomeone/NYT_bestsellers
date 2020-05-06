@@ -144,7 +144,7 @@ With a `mean testing accuracy of 0.81`
 
 ### Predictions
 
-To classy a book call the `modeling.py` from the command line with a description of a book in string format.
+To classify a book call the `modeling.py` from the command line with a description of a book in string format.
 
 ```shell
 $ python modeling.py 'The full inside story of the breathtaking rise and shocking collapse of Theranos, \
@@ -153,7 +153,7 @@ $ python modeling.py 'The full inside story of the breathtaking rise and shockin
 
 > Bestseller
 ```
-The model classifies the first paragraph of Bad Blood: Secrets and Lies in a Silicon Valley Startup by John Carreyrou as a NYT bestseller.
+The model classifies the first paragraph the description of Bad Blood: Secrets and Lies in a Silicon Valley Startup by John Carreyrou as a NYT bestseller.
 
 An important note is that most descriptions will be classified and not bestsellers (even when they are on the besteller list), this is due to the training data and current model used in classification, a RandomForestClassifier trained only on book descriptions.
 
