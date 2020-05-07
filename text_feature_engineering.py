@@ -4,7 +4,6 @@ import pandas as pd
 from nltk import pos_tag
 from nltk.corpus import wordnet as wn
 from nltk.stem.wordnet import WordNetLemmatizer
-from sklearn import model_selection
 from sklearn.feature_extraction import text as txt
 from sklearn.feature_extraction.text import CountVectorizer
 

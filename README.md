@@ -39,7 +39,7 @@ Best Sellering Books mean rating **3.92 out of 5**.
 
 Non-Best Selling Books mean rating **4.09 out of 5**.
 
-**Nonfiction** and **Fiction** are most prevalent genres, with only 21 of the 33 total genres appear in the Best Seller list.
+**Nonfiction** and **Fiction** are most prevalent genres, with only 21 of the 33 total genres appearing in the Best Seller list.
 
 <img width="675" height="450" alt="Screen Shot 2020-02-17 at 4 37 55 PM" src="https://user-images.githubusercontent.com/39356742/74688056-49087980-51a4-11ea-9a59-a022a76557fe.png">
 
