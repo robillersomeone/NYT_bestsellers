@@ -27,9 +27,9 @@ def genre_url_list(url):
     list of every genre url for given year
     """
     soup = bs(urllib.request.urlopen(url), 'html.parser')
-    soup.find_all('a', {'class':'categoriesList__categoryLink categoriesList__categoryLink--current'})
+    # soup.find_all('a', {'class':'categoriesList__categoryLink'}) #categoriesList__categoryLink--current
     every_genre_list = []
-    for a in soup.find_all('a',{'class':"categoriesList__categoryLink categoriesList__categoryLink--current"},  href=True):
+    for a in soup.find_all('a',{'class':"categoriesList__categoryLink"},  href=True):
         every_genre_list.append('https://www.goodreads.com' + (a['href']))
     return every_genre_list
 
@@ -48,7 +48,7 @@ def book_url_list(genre_urls):
     for url in tqdm(genre_urls):
         soup = bs(urllib.request.urlopen(url), 'html.parser')
         for a in soup.find_all('a',{"class":"pollAnswer__bookLink"},  href=True):
-            book_list_2019.append('https://www.goodreads.com' + (a['href']))
+            book_list.append('https://www.goodreads.com' + (a['href']))
     return book_list
 
 # part 3
@@ -104,23 +104,25 @@ def get_description(book_links):
 
 
 
-# run on a url
-genre_url = 'https://www.goodreads.com/choiceawards/best-fiction-books-2019'
+# run on a url for that year (ie 2016, 2017, 2018)
+genre_url = 'https://www.goodreads.com/choiceawards/best-fiction-books-2016'
 
 if __name__ == "__main__":
     # part 1
     #this extracts the url for every genre category of 2019 (or other year) choice awards
     genre_url_list_ = genre_url_list(genre_url)
+    print("got the genres")
 
     # part 2
     book_url_list_ = book_url_list(genre_url_list_)
+    print("got the books")
 
-    #part 3
+    # part 3
     book_df = get_description(book_url_list_)
 
 
     # save data as csv
-    # book_df.to_csv('../data/goodread_2019_df.csv)
+    book_df.to_csv('../data/2016_goodread.csv)
 
 
 
