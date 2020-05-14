@@ -7,7 +7,7 @@ import urllib.request
 from tqdm import tqdm
 from bs4 import BeautifulSoup as bs
 
-# webb scraping the data in three parts
+# web scraping the data in three parts
 
 # part 1: get genre urls for given year
 
@@ -73,6 +73,7 @@ def get_description(book_links):
             description = soup.find('div', id='description').text[1:-9]
         except:
             description = None
+            print('no description')
         try:    
             get_title = soup.find('h1',{"id":"bookTitle"}).get_text().replace('\n', '').replace('  ', '')
         except:
@@ -141,19 +142,5 @@ if __name__ == "__main__":
     # part 3
     book_df = get_description(book_url_list_)
 
-
     # save data as csv
     book_df.to_csv('../data/2016_goodreads.csv')
-
-
-
-
-
-# nyt_2018_df = pd.DataFrame.from_dict(all_books)
-# # nyt_2018_df.to_csv('csv_files/nyt_2018_df.csv', encoding='utf-8', index=False)
-
-# nyt_2017_df = pd.DataFrame.from_dict(all_books_2017)
-# # nyt_2017_df.to_csv('csv_files/nyt_2017_df.csv', encoding='utf-8', index=False)
-
-# nyt_2016_df = pd.DataFrame.from_dict(all_books_2016)
-# # nyt_2016_df.to_csv('csv_files/nyt_2016_df.csv', encoding='utf-8', index=False)
