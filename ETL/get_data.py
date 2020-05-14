@@ -69,28 +69,49 @@ def get_description(book_links):
         time.sleep(random.randint(1, 10)/10)
         r = requests.get(url)
         soup = bs(r.text)
+        try:
+            description = soup.find('div', id='description').text[1:-9]
+        except:
+            description = None
+        try:    
+            get_title = soup.find('h1',{"id":"bookTitle"}).get_text().replace('\n', '').replace('  ', '')
+        except:
+            get_title = None
+        try:    
+            get_genre = soup.find('a', {'class':"actionLinkLite bookPageGenreLink"}).get_text()
+        except:
+            get_genre = None
+        try:    
+            get_rating = soup.find('span',{"itemprop":"ratingValue"}).get_text().replace('\n', '').replace(' ', '')
+        except:
+            get_rating = None
+        try:    
+            get_author = soup.find('span', {'itemprop':"name"}).get_text()
+        except:
+            get_author = None
+        try:    
+            get_pages = soup.find('span', {'itemprop':"numberOfPages"}).get_text().split(' ')[0]
+        except:
+            get_pages = None
+        try:    
+            get_format = soup.find('span', {'itemprop':"bookFormat"}).get_text()
+        except:
+            get_format = None
+        try:
+            get_date_pub = soup.find('div', {'id':"details"}).contents[3].get_text()
+        except:
+            get_date_pub = None
+        try:
+            date_pattern = """(?:January|February|March|April|May|June|
+                            July|August|September|October|November|December) .*(?=\n)"""
 
-        description = soup.find('div', id='description').text[1:-9]
-
-        get_title = soup.find('h1',{"id":"bookTitle"}).get_text().replace('\n', '').replace('  ', '')
-        
-        get_genre = soup.find('a', {'class':"actionLinkLite bookPageGenreLink"}).get_text()
-        
-        get_rating = soup.find('span',{"itemprop":"ratingValue"}).get_text().replace('\n', '').replace(' ', '')
-        
-        get_author = soup.find('span', {'itemprop':"name"}).get_text()
-        
-        get_pages = soup.find('span', {'itemprop':"numberOfPages"}).get_text().split(' ')[0]
-        
-        get_format = soup.find('span', {'itemprop':"bookFormat"}).get_text()
-
-        date_pattern = """(?:January|February|March|April|May|June|
-                        July|August|September|October|November|December) .*(?=\n)"""
-
-        get_date_pub = soup.find('div', {'id':"details"}).contents[3].get_text()
-        get_date = re.findall(date_pattern, get_date_pub)[0]
-
-        get_publisher = re.findall(r'by .*(?=\n)', get_date_pub)[0][3:]
+            get_date = re.findall(date_pattern, get_date_pub)
+        except:
+            get_date = None
+        try:
+            get_publisher = re.findall(r'by .*(?=\n)', get_date_pub)
+        except:
+            get_publisher = None
         
         book_info.append({
             'title': get_title, 'author': get_author, 'description':description, 
@@ -122,7 +143,7 @@ if __name__ == "__main__":
 
 
     # save data as csv
-    book_df.to_csv('../data/2016_goodread.csv)
+    book_df.to_csv('../data/2016_goodreads.csv')
 
 
 
