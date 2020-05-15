@@ -125,11 +125,10 @@ def get_description(book_links):
     return pd.DataFrame(book_info)
 
 
-
 # run on a url for that year (ie 2016, 2017, 2018)
 genre_url = 'https://www.goodreads.com/choiceawards/best-fiction-books-2016'
 
-if __name__ == "__main__":
+def main():
     # part 1
     #this extracts the url for every genre category of 2019 (or other year) choice awards
     genre_url_list_ = genre_url_list(genre_url)
@@ -144,3 +143,6 @@ if __name__ == "__main__":
 
     # save data as csv
     book_df.to_csv('../data/2016_goodreads.csv')
+
+if __name__ == "__main__":
+    main()
