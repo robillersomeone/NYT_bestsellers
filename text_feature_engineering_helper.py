@@ -4,28 +4,32 @@ import numpy as np
 def no_html(text):
     '''remove html tags
     -------
-    text: a string of the description for one book
+    text: str
+        a string of the description for one book
     '''
     return re.sub('<.{1,9}>',' ', text)
 
 def no_nums(text):
     '''remove years and numbers
     -------
-    text: a string of the description
+    text: str
+        a string of the description
     '''
     return re.sub('\d+', ' ', text)
 
 def no_punc(text):
     '''remove punctuation
     -------
-    text: a string of the description
+    text: str
+        a string of the description
     '''
     return re.sub('\.|-|\(|\)|\"|,|\?|\!', ' ', text)
 
 def no_upper(text):
     '''remove uppercase
     -------
-    text: a string of the description
+    text: str
+        a string of the description
     '''
     return text.lower()
 

@@ -27,8 +27,8 @@ def mapping_pos(word):
 
     Parameters
     -------
-    word: one word string
-
+    word : str
+        one word string
     Returns
     -------
     Part of Speech for the WordNetLemmatizer as a string
@@ -52,7 +52,8 @@ def lemmtize_it(sentences):
 
     Parameters
     -------
-    sentences: a string of the description,
+    sentences: str
+        a string of the description,
         with no html, intergers, or punctuation
 
     Returns
@@ -77,7 +78,8 @@ def nlp_processing(text):
 
     Parameters
     -------
-    text: a string of the description,
+    text: str
+        a string of the description,
         with lemmas, no html, intergers, or punctuation
 
     Returns
@@ -107,6 +109,5 @@ def nlp_processing(text):
 # X_test_df = pd.DataFrame(v_X_test.toarray(),columns=cv.get_feature_names())
 
 # think about output from function
-# make a class?
 
 # synsets?
