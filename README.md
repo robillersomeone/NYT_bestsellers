@@ -157,6 +157,10 @@ The model classifies the first paragraph the description of "Bad Blood: Secrets 
 
 An important note is that most descriptions will be classified and not bestsellers (even when they are on the besteller list), this is due to the training data and current model used in classification, a RandomForestClassifier trained only on book descriptions.
 
-## Next Steps
+### Feature importance
 
-Compare the feature weights in logistic and tree based models.
+Comparing the feature weights in logistic and tree based models.
+
+For the random forest model built with ratings data the number of pages a book has is slightly more predictive than the rating it receives on goodreads.
+
+<img src="./imgs/random_forest_rating_importance.png" height="300px" width="400px">
