@@ -68,6 +68,7 @@ def lemmtize_it(sentences):
 v_lemmtize_it =  np.vectorize(lemmtize_it)
 
 # stop words
+# add 'prize', 'pulitzer', and possibly 'acclaim'
 nyt_stop_words = ['new', 'york', 'bestseller', 'besteller', 'bestselling']
 
 # add custom stop words to list of stop words, which is a frozen set
