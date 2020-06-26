@@ -163,4 +163,5 @@ Comparing the feature weights in logistic and tree based models.
 
 For the random forest model built with ratings data the number of pages a book has is slightly more predictive than the rating it receives on goodreads.
 
-<img src="./imgs/random_forest_rating_importance.png" height="300px" width="400px">
+
+![image](https://user-images.githubusercontent.com/39356742/85816393-cf276480-b730-11ea-8349-a2f0e580b7e6.png)
